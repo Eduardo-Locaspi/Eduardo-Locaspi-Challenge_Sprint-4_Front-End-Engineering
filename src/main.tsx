@@ -9,7 +9,7 @@ import Cadastro from './pages/Cadastro.tsx'
 import Integrantes from './pages/Integrantes.tsx'
 import Sobre from './pages/Sobre.tsx'
 import Faq from './pages/Faq.tsx'
-import Contato from './pages/COntato.tsx'
+import Contato from './pages/Contato.tsx'
 import Home from './pages/Home.tsx'
 
 

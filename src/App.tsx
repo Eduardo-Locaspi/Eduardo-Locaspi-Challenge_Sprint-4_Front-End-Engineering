@@ -3,8 +3,8 @@ import { Outlet } from "react-router-dom";
 export default function App(){
 
   return(
-    <div>
-      {/* HEADER */}
+    <div className="bg-gray-300 min h-screen">
+      
 
       <Outlet/>
 
