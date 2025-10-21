@@ -19,10 +19,10 @@ const router = createBrowserRouter([
   { path: "/cadastro", element: <Cadastro/> },
   { path: "/", element: <App/>/*App = Home*/, children:[
     {path:"/",element:<Home/>},
-    {path:"integrantes", element:<Integrantes/>},
-    {path:"sobre",element:<Sobre/>},
-    {path:"faq",element:<Faq/>},
-    {path:"contato",element:<Contato/>}
+    {path:"/integrantes", element:<Integrantes/>},
+    {path:"/sobre",element:<Sobre/>},
+    {path:"/faq",element:<Faq/>},
+    {path:"/contato",element:<Contato/>}
   ] },
   { path: "*", element: <Error/> }, //Erro Page
 ])

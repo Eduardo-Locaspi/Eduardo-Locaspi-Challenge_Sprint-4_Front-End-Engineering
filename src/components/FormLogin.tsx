@@ -28,10 +28,9 @@ export default function FormLogin(){
 
     return (
         <form action="" className="flex flex-col gap-5 items-center" onSubmit={handleSubmit}> 
-            <input className="outline-2 rounded-md w-full px-2.5 py-3 text-2xl " type="text" placeholder="nome" onChange={handleChange} value={login.nome} name="nome"/>
+            <input className="outline-2 rounded-md w-full px-2.5 py-3 text-2xl " type="text" placeholder="Usuário" onChange={handleChange} value={login.nome} name="nome"/>
 
-            <input className="outline-2 rounded-md w-full px-2.5 py-3 text-2xl" type="text" placeholder="senha" onChange={handleChange} value={login.senha} name="senha"/>
-
+            <input className="outline-2 rounded-md w-full px-2.5 py-3 text-2xl" type="text" placeholder="Senha" onChange={handleChange} value={login.senha} name="senha"/>
             <button type ="submit" className="bg-red-800 text-white w-6/12 text-2xl py-2 rounded-full my-5" >Entrar</button>
         </form>
     )
