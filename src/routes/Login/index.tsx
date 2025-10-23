@@ -1,4 +1,4 @@
-import FormLogin from "../components/FormLogin";
+import FormLogin from "../../components/FormLogin";
 import { Link } from "react-router-dom";
 
 export default function Login(){
@@ -16,8 +16,6 @@ export default function Login(){
                 <p>Não tem uma conta?</p>
                 <Link to="/cadastro" className="flex text-red-800 bg-gray-200 w-6/12 text-2xl py-2 rounded-full my-5 border-2 border-red-800 items-center justify-center text-center" >Cadastrar</Link>
             </div>
-            
-            
         </div>
     )
 }

@@ -3,14 +3,14 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Login from './pages/Login.tsx'
-import Error from './pages/Error.tsx'
-import Cadastro from './pages/Cadastro.tsx'
-import Integrantes from './pages/Integrantes.tsx'
-import Sobre from './pages/Sobre.tsx'
-import Faq from './pages/Faq.tsx'
-import Contato from './pages/Contato.tsx'
-import Home from './pages/Home.tsx'
+
+import Login from './routes/Login/index.tsx'
+import Cadastro from './routes/Cadastro/index.tsx'
+import Contato from './routes/Contato/index.tsx'
+import Faq from './routes/Faq/index.tsx'
+import Home from './routes/Home/index.tsx'
+import Integrantes from './routes/Integrantes/index.tsx'
+import Sobre from './routes/Sobre/index.tsx'
 
 
 
