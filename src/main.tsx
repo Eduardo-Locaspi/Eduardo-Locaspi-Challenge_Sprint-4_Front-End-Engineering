@@ -11,6 +11,7 @@ import Faq from './routes/Faq/index.tsx'
 import Home from './routes/Home/index.tsx'
 import Integrantes from './routes/Integrantes/index.tsx'
 import Sobre from './routes/Sobre/index.tsx'
+import Error from './routes/Error/index.tsx'
 
 
 

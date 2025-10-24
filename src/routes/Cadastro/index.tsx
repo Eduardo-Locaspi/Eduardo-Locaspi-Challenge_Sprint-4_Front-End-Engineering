@@ -1,21 +1,36 @@
-import FormCadastro from "../../components/FormCadastro";
+import { useState } from "react"
+import FormCadastroPessoa from "../../components/CadastroForms/FormCadastroPessoa"
+import FormCadastroPaciente from "../../components/CadastroForms/FormCadastroPaciente"
+import FormCadastroLogin from "../../components/CadastroForms/FormCadastroLogin"
 
+export default function Cadastro() {
+  const [dadosPessoa, setDadosPessoa] = useState({})
+  const [dadosPaciente, setDadosPaciente] = useState({})
+  const [dadosLogin, setDadosLogin] = useState({})
 
-export default function Cadastro(){
-    // Duvida: O que é melhor? Criar apenas um formulario com todas as informacoes necessárias OU dividir por componentes(que representam as entidades/tabelas) 
+  const handleSubmit = () => {
+    const dadosCompletos = { pessoa: dadosPessoa, paciente: dadosPaciente, login: dadosLogin }
+    console.log("Enviando para o backend:", dadosCompletos)
+    /*API Aqui depois*/
+  }
 
-    return(
-        <div className="bg-red-800 min-h-screen  flex flex-col gap-10 p-20 items-start">
-                    
-                <div className="bg-white w-3/12 m-auto rounded-md p-10 flex flex-col items-center">
-                    <h1 className="text-4xl font-sans text-center mb-10">Dados Pessoais:</h1>
-                    
-                    <FormCadastro/>
-                      
-                </div>
-                
-                
-                <button className="text-red-800 bg-gray-200 w-6/12 text-2xl py-2 rounded-full my-5 border-2 border-red-800" >Criar Conta</button>
-        </div>
-    )
+  return (
+    <div className="bg-red-800 min-h-screen flex flex-col gap-10 items-center p-10">
+      <div className="bg-white rounded-md p-10 w-full max-w-xl shadow-lg">
+        <h1 className="text-3xl font-bold mb-6 text-center text-red-800">Cadastro de Paciente</h1>
+
+        <h2 className="text-xl font-semibold mb-3 text-red-700">Dados pessoais</h2>
+        <FormCadastroPessoa onChange={setDadosPessoa} />
+
+        <h2 className="text-xl font-semibold mt-8 mb-3 text-red-700">Informações médicas</h2>
+        <FormCadastroPaciente onChange={setDadosPaciente} />
+
+        <h2 className="text-xl font-semibold mt-8 mb-3 text-red-700">Login de acesso</h2>
+        <FormCadastroLogin onChange={setDadosLogin} />
+
+        <button onClick={handleSubmit} className="mt-10 w-full bg-red-700 hover:bg-red-800 text-white py-3 rounded-md text-lg font-semibold transition"
+>Criar Conta</button>
+      </div>
+    </div>
+  )
 }

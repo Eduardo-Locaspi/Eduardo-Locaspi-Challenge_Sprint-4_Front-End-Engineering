@@ -1,37 +1,47 @@
 import { useState } from "react"
-import type { LoginType } from "../types/LoginType"
 
-export default function FormLogin(){
+type Login = {
+  usuario: string,
+  senha: string
+}
 
+export default function FormLogin() {
 
-    const [login,setLogin] = useState<LoginType>({nome:'',senha:''})
-    
-    const handleSubmit = (e:React.FormEvent<HTMLFormElement>)=>{
-        e.preventDefault()
+  const [login, setLogin] = useState<Login>({ usuario: "", senha: "" })
 
-        console.log("envio para o backend")
-    }
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    console.log("Envio para o backend:", login.usuario, "e", login.senha) /*AQUI acho que vai o fetch depois com a API*/
+  }
 
-    const handleChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
-        setLogin({...login,[e.target.name]:e.target.value})
-        //[e.target.name]: Cada input tem um atributo NAME,
-        //      então como temos dois inputs, temos que usar uma formula/funcao geral
-        //porque esta entre colchetes? -> Por que é uma propriedade dinamica
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setLogin({ ...login, [name]: value })
+  }
 
-        //oq é ...login? é uma copia gerada
+  return (
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col gap-4 items-center w-full max-w-[280px]"
+    >
+      <input className="bg-neutral-800 text-white placeholder-gray-400 border border-gray-600 rounded-md w-full px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition"
+        type="text"
+        placeholder="Usuário"
+        onChange={handleChange}
+        value={login.usuario}
+        name="usuario"
+      />
 
-        //e.target.value : Cada input tem um atributo VALUE
+      <input
+        className="bg-neutral-800 text-white placeholder-gray-400 border border-gray-600 rounded-md w-full px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition"
+        type="password"
+        placeholder="Senha"
+        onChange={handleChange}
+        value={login.senha}
+        name="senha"
+      />
 
-        //OBJETIVO: Atribuir cada VALUE em seu respectivo NAME
-    }
-
-
-    return (
-        <form action="" className="flex flex-col gap-5 items-center" onSubmit={handleSubmit}> 
-            <input className="outline-2 rounded-md w-full px-2.5 py-3 text-2xl " type="text" placeholder="Usuário" onChange={handleChange} value={login.nome} name="nome"/>
-
-            <input className="outline-2 rounded-md w-full px-2.5 py-3 text-2xl" type="text" placeholder="Senha" onChange={handleChange} value={login.senha} name="senha"/>
-            <button type ="submit" className="bg-red-800 text-white w-6/12 text-2xl py-2 rounded-full my-5" >Entrar</button>
-        </form>
-    )
+      <button type="submit" className="bg-red-600 hover:bg-red-700 text-white font-semibold w-40 text-base py-2 rounded-md mt-2 transition">Entrar</button>
+    </form>
+  )
 }
