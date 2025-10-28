@@ -1,4 +1,4 @@
-
+import healthInovation from '../../assets/heathInovation.jpeg' 
 
 export default function Sobre(){
 
