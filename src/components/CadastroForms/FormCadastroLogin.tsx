@@ -17,8 +17,8 @@ export default function FormCadastroLogin({ onChange }: { onChange: (data: Login
 
   return (
     <div className="flex flex-col gap-3 w-full">
-      <input className="rounded-md border px-3 py-2" type="text" name="nm_usuario" placeholder="Usuário" onChange={handleChange} />
-      <input className="rounded-md border px-3 py-2" type="password" name="senha" placeholder="Senha" onChange={handleChange} />
+      <input className="rounded-md border px-3 py-2" type="text" name="nm_usuario" placeholder="Usuário" onChange={handleChange} required />
+      <input className="rounded-md border px-3 py-2" type="password" name="senha" placeholder="Senha" onChange={handleChange} required/>
     </div>
   )
 }
