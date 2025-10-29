@@ -5,6 +5,7 @@ import logo from "../../../public/axcessTech_Logo-removebg-preview.png";
 export default function Login() {
   return (
     <div className="bg-red-600 min-h-screen flex items-center justify-center">
+
       <div className="grid grid-cols-2 w-[800px] h-[450px] rounded-md overflow-hidden shadow-lg">
 
         <div className="bg-gray-100 flex items-center justify-center">
