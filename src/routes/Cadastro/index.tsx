@@ -3,7 +3,7 @@ import FormCadastroPessoa from "../../components/CadastroForms/FormCadastroPesso
 import FormCadastroPaciente from "../../components/CadastroForms/FormCadastroPaciente"
 import FormCadastroLogin from "../../components/CadastroForms/FormCadastroLogin"
 import FormCadastroFuncionario from "../../components/CadastroForms/FormCadastroFuncionario" // <-- novo
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export default function Cadastro() {
   const [dadosPessoa, setDadosPessoa] = useState({})
@@ -22,6 +22,7 @@ export default function Cadastro() {
 
     console.log("Enviando para o backend:", dadosCompletos)
   }
+  //const navegacao = useNavigate()
 
   return (
     <div className="bg-red-800 min-h-screen flex flex-col gap-10 items-center p-10">
@@ -67,10 +68,11 @@ export default function Cadastro() {
             <button type="submit" className="mt-10 w-full bg-red-700 hover:bg-red-800 text-white py-3 rounded-md text-lg font-semibold transition">
               Criar Conta
             </button>
+
             
           </>
         )}
-            <Link to={'/login'} className="">Voltar</Link>
+        <Link to={'/login'} className="text-center">Voltar</Link>
 
       </form>
       
