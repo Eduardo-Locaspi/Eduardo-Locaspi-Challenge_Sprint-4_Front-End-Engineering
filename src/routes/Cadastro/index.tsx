@@ -2,7 +2,12 @@ import { useState } from "react"
 import FormCadastroPessoa from "../../components/CadastroForms/FormCadastroPessoa"
 import FormCadastroPaciente from "../../components/CadastroForms/FormCadastroPaciente"
 import FormCadastroLogin from "../../components/CadastroForms/FormCadastroLogin"
+<<<<<<< HEAD
 import FormCadastroFuncionario from "../../components/CadastroForms/FormCadastroFuncionario"
+=======
+import FormCadastroFuncionario from "../../components/CadastroForms/FormCadastroFuncionario" // <-- novo
+import { Link, useNavigate } from "react-router-dom"
+>>>>>>> c6810c9675b2ddbf3da932ab9852f252f8402e70
 
 export default function Cadastro() {
   const [dadosPessoa, setDadosPessoa] = useState({})
@@ -21,6 +26,7 @@ export default function Cadastro() {
 
     console.log("Enviando para o backend:", dadosCompletos)
   }
+  //const navegacao = useNavigate()
 
   return (
     <div className="bg-red-800 min-h-screen flex flex-col gap-10 items-center p-10">
@@ -44,6 +50,7 @@ export default function Cadastro() {
             <h2 className="text-xl font-semibold mb-3 mt-8 text-red-700">Dados pessoais</h2>
             <FormCadastroPessoa onChange={setDadosPessoa} />
 
+              {/*Se for Paciente*/} 
             {usuario === "Paciente" && (
               <>
                 <h2 className="text-xl font-semibold mt-8 mb-3 text-red-700">Informações médicas</h2>
@@ -51,6 +58,7 @@ export default function Cadastro() {
               </>
             )}
 
+              {/*Se for Funcioario*/} 
             {usuario === "Funcionário" && (
               <>
                 <h2 className="text-xl font-semibold mt-8 mb-3 text-red-700">Dados funcionais</h2>
@@ -64,9 +72,14 @@ export default function Cadastro() {
             <button type="submit" className="mt-10 w-full bg-red-700 hover:bg-red-800 text-white py-3 rounded-md text-lg font-semibold transition">
               Criar Conta
             </button>
+
+            
           </>
         )}
+        <Link to={'/login'} className="text-center">Voltar</Link>
+
       </form>
+      
     </div>
   )
 }
