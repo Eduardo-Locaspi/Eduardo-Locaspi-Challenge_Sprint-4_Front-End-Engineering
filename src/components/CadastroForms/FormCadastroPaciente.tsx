@@ -28,7 +28,7 @@ export default function FormCadastroPaciente({ onChange }: { onChange: (data: Pa
 
       <input className="rounded-md border px-3 py-2" name="historico_medico" placeholder="Histórico médico" onChange={handleChange}/>
 
-      <select className="rounded-md border px-3 py-2" name="grupo_sanguineo" onChange={handleChange}>
+      <select className="rounded-md border px-3 py-2" name="grupo_sanguineo" onChange={handleChange} required>
         <option value="">Grupo sanguíneo</option>
 
         {["A+","A-","B+","B-","AB+","AB-","O+","O-"].map(tipo => (
@@ -36,8 +36,8 @@ export default function FormCadastroPaciente({ onChange }: { onChange: (data: Pa
         ))}
       </select>
       
-      <input className="rounded-md border px-3 py-2" type="number" name="altura" placeholder="Altura (m)" onChange={handleChange} min={0} />
-      <input className="rounded-md border px-3 py-2" type="number" name="peso" placeholder="Peso (kg)" onChange={handleChange} min={0} />
+      <input className="rounded-md border px-3 py-2" type="number" name="altura" placeholder="Altura (m)" onChange={handleChange} min={0} required/>
+      <input className="rounded-md border px-3 py-2" type="number" name="peso" placeholder="Peso (kg)" onChange={handleChange} min={0} required/>
     </div>
   )
 }
