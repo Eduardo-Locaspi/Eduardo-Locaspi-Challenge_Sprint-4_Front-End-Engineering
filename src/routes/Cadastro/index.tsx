@@ -2,7 +2,7 @@ import { useState } from "react"
 import FormCadastroPessoa from "../../components/CadastroForms/FormCadastroPessoa"
 import FormCadastroPaciente from "../../components/CadastroForms/FormCadastroPaciente"
 import FormCadastroLogin from "../../components/CadastroForms/FormCadastroLogin"
-import FormCadastroFuncionario from "../../components/CadastroForms/FormCadastroFuncionario" // <-- novo
+import FormCadastroFuncionario from "../../components/CadastroForms/FormCadastroFuncionario"
 
 export default function Cadastro() {
   const [dadosPessoa, setDadosPessoa] = useState({})
