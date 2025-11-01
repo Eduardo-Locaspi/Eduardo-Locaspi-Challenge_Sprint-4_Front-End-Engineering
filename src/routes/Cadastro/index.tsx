@@ -1,13 +1,9 @@
 import { useState } from "react"
+import { Link } from "react-router-dom";
 import FormCadastroPessoa from "../../components/CadastroForms/FormCadastroPessoa"
 import FormCadastroPaciente from "../../components/CadastroForms/FormCadastroPaciente"
 import FormCadastroLogin from "../../components/CadastroForms/FormCadastroLogin"
-<<<<<<< HEAD
 import FormCadastroFuncionario from "../../components/CadastroForms/FormCadastroFuncionario"
-=======
-import FormCadastroFuncionario from "../../components/CadastroForms/FormCadastroFuncionario" // <-- novo
-import { Link, useNavigate } from "react-router-dom"
->>>>>>> c6810c9675b2ddbf3da932ab9852f252f8402e70
 
 export default function Cadastro() {
   const [dadosPessoa, setDadosPessoa] = useState({})
@@ -76,7 +72,6 @@ export default function Cadastro() {
             
           </>
         )}
-        <Link to={'/login'} className="text-center">Voltar</Link>
 
       </form>
       
