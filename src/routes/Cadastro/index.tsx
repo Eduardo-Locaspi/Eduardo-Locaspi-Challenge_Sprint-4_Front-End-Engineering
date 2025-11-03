@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { Link } from "react-router-dom";
 import FormCadastroPessoa from "../../components/CadastroForms/FormCadastroPessoa"
 import FormCadastroPaciente from "../../components/CadastroForms/FormCadastroPaciente"
 import FormCadastroLogin from "../../components/CadastroForms/FormCadastroLogin"
@@ -21,6 +20,26 @@ export default function Cadastro() {
         : { pessoa: dadosPessoa, funcionario: dadosFuncionario, login: dadosLogin }
 
     console.log("Enviando para o backend:", dadosCompletos)
+    fetch(
+      usuario === "Paciente"
+        ? "http://localhost:8080/cadastro/criarContaPaciente"
+        : "http://localhost:8080/cadastro/criarContaFuncionario",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(dadosCompletos),
+      }
+    )
+      .then((res) => {
+        if (!res.ok) throw new Error("Erro ao cadastrar");
+        return res.text();
+      })
+      .then((data) => {
+        console.log("Cadastro feito com sucesso:", data);
+      })
+      .catch((err) => {
+        console.error("Erro:", err);
+      });
   }
   //const navegacao = useNavigate()
 

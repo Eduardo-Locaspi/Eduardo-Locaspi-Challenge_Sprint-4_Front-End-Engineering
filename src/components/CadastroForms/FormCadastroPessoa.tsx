@@ -21,9 +21,16 @@ export default function FormCadastroPessoa({ onChange }: { onChange: (data: Pess
     escolaridade: "",
   })
 
+    const formatarData = (valor: string) => {
+    if (!valor) return ""
+    const [ano, mes, dia] = valor.split("-")
+    return `${dia}/${mes}/${ano}` // retorna no formato DD/MM/YYYY
+  }
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
-    const updated = { ...pessoa, [name]: value }
+    const novoValor = name === "dt_nascimento" ? formatarData(value) : value
+    const updated = { ...pessoa, [name]: novoValor }
     setPessoa(updated)
     onChange(updated)
   }
