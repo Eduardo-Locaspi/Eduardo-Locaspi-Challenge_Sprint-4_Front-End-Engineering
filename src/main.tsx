@@ -23,7 +23,8 @@ const router = createBrowserRouter([
     {path:"/integrantes", element:<Integrantes/>},
     {path:"/sobre",element:<Sobre/>},
     {path:"/faq",element:<Faq/>},
-    {path:"/contato",element:<Contato/>}
+    {path:"/contato",element:<Contato/>},
+    // {path:"/menuFuncionario", element:</>}
   ] },
   { path: "*", element: <Error/> }, //Erro Page
 ])
