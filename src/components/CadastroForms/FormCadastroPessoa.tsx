@@ -20,12 +20,12 @@ export default function FormCadastroPessoa({ onChange }: { onChange: (data: Pess
     estado_civil: "",
     escolaridade: "",
   })
-
-    const formatarData = (valor: string) => {
-    if (!valor) return ""
-    const [ano, mes, dia] = valor.split("-")
-    return `${dia}/${mes}/${ano}` // retorna no formato DD/MM/YYYY
-  }
+    const formatarData = (valor: string) => 
+    {
+      if (!valor) return ""
+      const [ano, mes, dia] = valor.split("-")
+      return `${dia}/${mes}/${ano}`
+    }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
