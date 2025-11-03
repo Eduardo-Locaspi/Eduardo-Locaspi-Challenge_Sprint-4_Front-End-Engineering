@@ -38,8 +38,8 @@ export default function FormCadastroPessoa({ onChange }: { onChange: (data: Pess
   return (
     <div className="flex flex-col gap-3 w-full">
       <input className="rounded-md border px-3 py-2" type="text" name="nm_pessoa" placeholder="Nome completo" onChange={handleChange} required/>
-      <input className="rounded-md border px-3 py-2" type="text" name="cpf" placeholder="CPF" onChange={handleChange} required/>
-      <input className="rounded-md border px-3 py-2" type="text" name="rg" placeholder="RG" onChange={handleChange} required/>
+      <input className="rounded-md border px-3 py-2" type="text" name="cpf" placeholder="CPF" onChange={handleChange} maxLength={11} minLength={10} required/>
+      <input className="rounded-md border px-3 py-2" type="text" name="rg" placeholder="RG" onChange={handleChange} maxLength={9} minLength={8} required/>
       <input className="rounded-md border px-3 py-2" type="date" name="dt_nascimento" onChange={handleChange} required/>
       <select className="rounded-md border px-3 py-2" name="sx_pessoa" onChange={handleChange} required>
         <option value="">Sexo</option>
@@ -54,7 +54,21 @@ export default function FormCadastroPessoa({ onChange }: { onChange: (data: Pess
         <option value="divorciado">Divorciado(a)</option>
         <option value="viúvo">Viúvo(a)</option>
       </select>
-      <input className="rounded-md border px-3 py-2" type="text" name="escolaridade" placeholder="Escolaridade" onChange={handleChange} required/>
+      <select className="rounded-md border px-3 py-2" name="escolaridade" onChange={handleChange} required>
+        <option value="">Escolaridade</option>
+        <option value="Ensino Fundamental Incompleto">Ensino Fundamental Incompleto</option>
+        <option value="Ensino Fundamental Cursando">Ensino Fundamental Cursando</option>
+        <option value="Ensino Fundamental Concluído">Ensino Fundamental Concluído</option>
+        <option value="Ensino Médio Incompleto">Ensino Médio Incompleto</option>
+        <option value="Ensino Médio Cursando">Ensino Médio Cursando</option>
+        <option value="Ensino Médio Concluído">Ensino Médio Concluído</option>
+        <option value="Ensino Superior Incompleto">Ensino Superior Incompleto</option>
+        <option value="Ensino Superior Cursando">Ensino Superior Cursando</option>
+        <option value="Ensino Superior Concluído">Ensino Superior Concluído</option>
+        <option value="Pós-Graduação Incompleto">Pós-Graduação Incompleto</option>
+        <option value="Pós-Graduação Cursando">Pós-Graduação Cursando</option>
+        <option value="Pós-Graduação Concluído">Pós-Graduação Concluído</option>
+      </select>
     </div>
   )
 }
