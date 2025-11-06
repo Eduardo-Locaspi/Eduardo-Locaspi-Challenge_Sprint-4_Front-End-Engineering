@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 
 import Login from './routes/Login/index.tsx'
 import Cadastro from './routes/Cadastro/index.tsx'
@@ -13,24 +13,38 @@ import Integrantes from './routes/Integrantes/index.tsx'
 import Sobre from './routes/Sobre/index.tsx'
 import Error from './routes/Error/index.tsx'
 
+import useAuth from './hooks/useAuth.ts'
+import { AuthProvider } from './context/auth.tsx'
+import EditarPacientes from './routes/Funcionario/DeletarPacientes/index.tsx'
 
+type PrivateProps = {
+  Item: React.ComponentType
+}
+
+const Private = ({Item}:PrivateProps)=>{
+  const signed = useAuth().signed
+  return signed ? <Item/> : <Navigate to='/'/>
+}
 
 const router = createBrowserRouter([
   { path: "/login", element: <Login/> },
   { path: "/cadastro", element: <Cadastro/> },
-  { path: "/", element: <App/>/*App = Home*/, children:[
+  { path: "/", element: <App/>, children:[
     {path:"/",element:<Home/>},
     {path:"/integrantes", element:<Integrantes/>},
     {path:"/sobre",element:<Sobre/>},
     {path:"/faq",element:<Faq/>},
     {path:"/contato",element:<Contato/>},
-    // {path:"/menuFuncionario", element:</>}
+    {path:"/funcionarios/editarPacientes", element:<Private Item={EditarPacientes}/>}
   ] },
   { path: "*", element: <Error/> }, //Erro Page
 ])
 
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router}/>
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )
