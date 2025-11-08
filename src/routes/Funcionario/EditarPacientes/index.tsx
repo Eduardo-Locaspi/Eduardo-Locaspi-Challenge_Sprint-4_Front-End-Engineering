@@ -35,20 +35,26 @@ export default function EditarPacientes() {
       .catch((err) => console.error(err));
   }, []);
 
-  const handleDelete = (id: number) => {
-    fetch(`http://localhost:8080/funcionario/deletar/${id}`, { method: "DELETE" })
-      .then((res) => {
-        if (!res.ok) throw new Error("Erro ao excluir paciente");
-        setPacientes((prev) =>
-          prev.filter((p) => p.idLoginPaciente !== id)
-        );
-      })
-      .catch((err) => console.error(err));
-  };
+const handleDelete = (p: TypePaciente) => {
+  fetch("http://localhost:8080/funcionario/deletar", {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      idLoginPaciente: p.idLoginPaciente,
+      idPaciente: p.idPaciente,
+      idPessoa: p.idPessoa,
+    }),
+  })
+    .then((res) => {
+      if (!res.ok) throw new Error("Erro ao excluir paciente");
+      setPacientes((prev) => prev.filter((x) => x.idLoginPaciente !== p.idLoginPaciente));
+    })
+    .catch((err) => console.error(err));
+};
 
   return (
     <div className="sm:w-11/12 lg:w-3/4 mt-8 m-auto min-h-screen px-2">
-      <h1 className="text-blue-800 text-3xl sm:text-4xl lg:text-5xl text-center font-bold mb-8">
+      <h1 className="text-black text-3xl sm:text-4xl lg:text-5xl text-center font-bold mb-8">
         Lista de Pacientes
       </h1>
 
@@ -64,7 +70,7 @@ export default function EditarPacientes() {
       <div className="overflow-x-auto">
         <table className="w-full border-2 border-gray-400 my-5 text-sm sm:text-base">
           <thead>
-            <tr className="*:p-2.5 bg-blue-800 text-white">
+            <tr className="*:p-2.5 bg-red-800 text-white">
               <th>Nome</th>
               <th>CPF</th>
               <th>RG</th>
@@ -88,16 +94,11 @@ export default function EditarPacientes() {
                   <td>
                     <Link
                       className="m-1 bg-blue-600 text-white px-2 pb-1 rounded-md hover:font-bold text-sm sm:text-base"
-                      to={`/funcionario/${p.idLoginPaciente}`}
+                      to={`/funcionarios/editar-pacientes/${p.idLoginPaciente}`}
                     >
                       Editar
                     </Link>
-                    <button
-                      onClick={() => handleDelete(p.idLoginPaciente)}
-                      className="m-1 bg-red-600 text-white px-2 pb-1 rounded-md hover:font-bold text-sm sm:text-base"
-                    >
-                      Excluir
-                    </button>
+                    <button onClick={() => handleDelete(p)} className="m-1 bg-red-600 text-white px-2 pb-1 rounded-md hover:font-bold text-sm sm:text-base">Excluir</button>
                   </td>
                 </tr>
               ))

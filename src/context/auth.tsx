@@ -1,9 +1,9 @@
-// auth.tsx
 import { createContext, useContext, useState } from "react";
 
 interface AuthContextType {
   user: string | null;
   role: "Paciente" | "Funcionario" | null;
+  signed: boolean;
   signin: (usuario: string, senha: string, tipo: "Paciente" | "Funcionario") => Promise<string | null>;
   signout: () => void;
 }
@@ -15,6 +15,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [role, setRole] = useState<"Paciente" | "Funcionario" | null>(
     (localStorage.getItem("role") as "Paciente" | "Funcionario") || null
   );
+
+  const signed = !!user;
 
   const signin = async (usuario: string, senha: string, tipo: "Paciente" | "Funcionario") => {
     const endpoint =
@@ -55,7 +57,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, role, signin, signout }}>
+    <AuthContext.Provider value={{ user, role, signed, signin, signout }}>
       {children}
     </AuthContext.Provider>
   );

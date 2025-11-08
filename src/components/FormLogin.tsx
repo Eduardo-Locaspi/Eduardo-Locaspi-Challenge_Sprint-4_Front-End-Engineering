@@ -31,7 +31,7 @@ export default function FormLogin() {
       navigate(
         usuario === "Funcionario"
           ? "/funcionarios/editar-pacientes"
-          : "/paciente/perfil"
+          : "/paciente/home"
       );
     }
   };

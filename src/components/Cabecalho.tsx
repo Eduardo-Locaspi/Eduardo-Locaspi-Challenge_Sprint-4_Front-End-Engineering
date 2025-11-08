@@ -1,4 +1,4 @@
-import logo from "../../public/axcessTech_Logo_white.png"
+import logo from "../assets/axcessTech_Logo_white.png"
 import { Link } from "react-router-dom";
 
 export default function Cabecalho(){

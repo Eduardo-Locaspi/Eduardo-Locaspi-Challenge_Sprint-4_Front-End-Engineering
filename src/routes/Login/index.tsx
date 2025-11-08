@@ -1,6 +1,6 @@
 import FormLogin from "../../components/FormLogin";
 import { Link } from "react-router-dom";
-import logo from "../../../public/axcessTech_Logo-removebg-preview.png";
+import logo from "../../assets/axcessTech_Logo-removebg-preview.png";
 
 export default function Login() {
   return (
