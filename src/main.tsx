@@ -15,16 +15,20 @@ import Error from './routes/Error/index.tsx'
 
 import useAuth from './hooks/useAuth.ts'
 import { AuthProvider } from './context/auth.tsx'
-import EditarPacientes from './routes/Funcionario/DeletarPacientes/index.tsx'
+import EditarPacientes from './routes/Funcionario/EditarPacientes/index.tsx'
+import { PrivateRoute } from './components/PrivateRoute.tsx'
+import MarcarConsulta from './routes/Pacientes/MarcarConsulta.tsx/index.tsx'
+import DashBoard from './routes/Funcionario/Dashboard/index.tsx'
 
 type PrivateProps = {
   Item: React.ComponentType
 }
 
-const Private = ({Item}:PrivateProps)=>{
-  const signed = useAuth().signed
-  return signed ? <Item/> : <Navigate to='/'/>
-}
+const Private = ({ Item }: PrivateProps) => {
+  const { signed } = useAuth();
+
+  return signed ? <Item /> : <Navigate to="/login" />;
+};
 
 const router = createBrowserRouter([
   { path: "/login", element: <Login/> },
@@ -35,7 +39,10 @@ const router = createBrowserRouter([
     {path:"/sobre",element:<Sobre/>},
     {path:"/faq",element:<Faq/>},
     {path:"/contato",element:<Contato/>},
-    {path:"/funcionarios/editarPacientes", element:<Private Item={EditarPacientes}/>}
+    {path:"/funcionarios/editar-pacientes", element:<PrivateRoute Item={EditarPacientes} allowedRoles={["Funcionario"]}/>},
+    {path:"/funcionarios/dashboard", element:<PrivateRoute Item={DashBoard} allowedRoles={["Funcionario"]}/>},
+    {path:"/paciente/agendar-consulta", element:<PrivateRoute Item={MarcarConsulta} allowedRoles={["Paciente"]}/>},
+
   ] },
   { path: "*", element: <Error/> }, //Erro Page
 ])

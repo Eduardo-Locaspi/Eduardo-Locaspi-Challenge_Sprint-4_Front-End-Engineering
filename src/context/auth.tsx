@@ -1,77 +1,66 @@
-import {createContext, useEffect, useState} from "react"
+// auth.tsx
+import { createContext, useContext, useState } from "react";
 
-type User = { email: string, password: string }
-
-type AuthContextType = {
-    user: User | null,
-    signed: boolean,
-    signin: (email: string, password: string) => string | void,
-    signup: (email: string, password: string) => string | void,
-    signout: ()=> void,
+interface AuthContextType {
+  user: string | null;
+  role: "Paciente" | "Funcionario" | null;
+  signin: (usuario: string, senha: string, tipo: "Paciente" | "Funcionario") => Promise<string | null>;
+  signout: () => void;
 }
 
-type AuthProviderProps = {
-    children: React.ReactNode
-}
+export const AuthContext = createContext<AuthContextType>({} as AuthContextType);
 
-export const AuthContext = createContext<AuthContextType>({} as AuthContextType)
+export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+  const [user, setUser] = useState<string | null>(localStorage.getItem("user"));
+  const [role, setRole] = useState<"Paciente" | "Funcionario" | null>(
+    (localStorage.getItem("role") as "Paciente" | "Funcionario") || null
+  );
 
-export const AuthProvider = ({children}:AuthProviderProps)=>{
+  const signin = async (usuario: string, senha: string, tipo: "Paciente" | "Funcionario") => {
+    const endpoint =
+      tipo === "Paciente"
+        ? "http://localhost:8080/login/paciente"
+        : "http://localhost:8080/login/funcionario";
 
-    const [user, setUser] = useState<User | null>(null)
+    try {
+      const res = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ usuario, senha }),
+      });
 
-    useEffect(()=>{
-        const userToken = localStorage.getItem('user_token')
-        const userStorage = localStorage.getItem('users_db') //pode ser substituido por uma API
-
-        if(userToken && userStorage){
-            const users: User[] = JSON.parse(userStorage)
-            const tokenData = JSON.parse(userToken)
-            const hasUser = users.find((u)=> u.email === tokenData.email)
-            if(hasUser) setUser(hasUser) 
-        }
-    },[])
-
-    const signup = (email:string, password:string): string | void =>{
-
-        const usersStorage = JSON.parse(localStorage.getItem('users_db') || '[]') as User[]
-
-        const hasUser = usersStorage.find((user)=> user.email === email)
-
-        if(hasUser){
-            return 'Já existe uma conta com esse email.'
-        }
-
-        const newUser = [...usersStorage, {email, password}]
-        localStorage.setItem('users_db', JSON.stringify(newUser))
+      if (res.ok) {
+        const token = btoa(`${usuario}:${senha}`);
+        localStorage.setItem("token", token);
+        localStorage.setItem("user", usuario);
+        localStorage.setItem("role", tipo);
+        setUser(usuario);
+        setRole(tipo);
+        return null;
+      } else {
+        return "Usuário ou senha inválidos";
+      }
+    } catch (err) {
+      console.error("Erro ao logar:", err);
+      return "Erro de conexão com o servidor";
     }
+  };
 
-    const signin = (email:string, password:string): string | void =>{
-        const usersStorage = JSON.parse(localStorage.getItem('users_db') || '[]') as User[]
-        const hasUser = usersStorage.find((user)=> user.email === email)
+  const signout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    localStorage.removeItem("role");
+    setUser(null);
+    setRole(null);
+  };
 
-        if(hasUser){
-            if(hasUser.password === password){
-                const token = Math.random().toString(36).substring(2)
-                localStorage.setItem('user_token', JSON.stringify({email, token}))
-                setUser({email, password})
-                return
-            }else{
-                return 'E-mail ou senha incorretos.'
-            }
-        }else{
-            return 'Usuário não cadastrado.'
-        }
-    }
+  return (
+    <AuthContext.Provider value={{ user, role, signin, signout }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
 
-    const signout = ()=>{
-        setUser(null)
-        localStorage.removeItem('user_token')
-    }
-
-    return(
-        <AuthContext.Provider value={{user, signed: !!user, signin, signup, signout}}>
-            {children}
-        </AuthContext.Provider>
-    )
+export default function useAuth() {
+  return useContext(AuthContext);
 }
