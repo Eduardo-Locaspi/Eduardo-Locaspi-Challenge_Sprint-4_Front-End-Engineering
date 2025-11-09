@@ -44,10 +44,10 @@ export default function FormLogin() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col gap-4 items-center w-full max-w-[280px]"
+      className="flex flex-col gap-4 items-center w-full max-w-md mx-auto px-4 sm:px-0"
     >
-      <div className="flex gap-5 text-white">
-        <div className="flex gap-2">
+      <div className="flex flex-col sm:flex-row gap-4 text-white w-full justify-center">
+        <div className="flex items-center gap-2">
           <input
             type="radio"
             name="usuario"
@@ -57,7 +57,7 @@ export default function FormLogin() {
           />
           <label>Paciente</label>
         </div>
-        <div className="flex gap-2">
+        <div className="flex items-center gap-2">
           <input
             type="radio"
             name="usuario"
@@ -91,7 +91,7 @@ export default function FormLogin() {
 
       <button
         type="submit"
-        className="bg-red-600 hover:bg-red-700 text-white font-semibold w-40 text-base py-2 rounded-md mt-2 transition"
+        className="bg-red-600 hover:bg-red-700 text-white font-semibold w-full sm:w-40 text-base py-2 rounded-md mt-2 transition"
       >
         Entrar
       </button>

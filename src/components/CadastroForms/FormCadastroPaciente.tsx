@@ -24,20 +24,44 @@ export default function FormCadastroPaciente({ onChange }: { onChange: (data: Pa
   }
 
   return (
-    <div className="flex flex-col gap-3 w-full">
+    <div className="flex flex-col gap-3 w-full max-w-md mx-auto px-2 sm:px-0">
+      <input
+        className="rounded-md border px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+        name="historico_medico"
+        placeholder="Histórico médico"
+        onChange={handleChange}
+      />
 
-      <input className="rounded-md border px-3 py-2" name="historico_medico" placeholder="Histórico médico" onChange={handleChange}/>
-
-      <select className="rounded-md border px-3 py-2" name="grupo_sanguineo" onChange={handleChange} required>
+      <select
+        className="rounded-md border px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+        name="grupo_sanguineo"
+        onChange={handleChange}
+        required
+      >
         <option value="">Grupo sanguíneo</option>
-
         {["A+","A-","B+","B-","AB+","AB-","O+","O-"].map(tipo => (
           <option key={tipo} value={tipo}>{tipo}</option>
         ))}
       </select>
       
-      <input className="rounded-md border px-3 py-2" type="number" name="altura" placeholder="Altura (cm)" onChange={handleChange} min={1} required/>
-      <input className="rounded-md border px-3 py-2" type="number" name="peso" placeholder="Peso (kg)" onChange={handleChange} min={1} required/>
+      <input
+        className="rounded-md border px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+        type="number"
+        name="altura"
+        placeholder="Altura (cm)"
+        onChange={handleChange}
+        min={1}
+        required
+      />
+      <input
+        className="rounded-md border px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+        type="number"
+        name="peso"
+        placeholder="Peso (kg)"
+        onChange={handleChange}
+        min={1}
+        required
+      />
     </div>
   )
 }

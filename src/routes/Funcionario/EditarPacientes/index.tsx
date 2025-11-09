@@ -35,23 +35,22 @@ export default function EditarPacientes() {
       .catch((err) => console.error(err));
   }, []);
 
-const handleDelete = (p: TypePaciente) => {
-  console.log(p)
-  fetch("https://challenge-sprint4-java-2025.onrender.com/funcionario/deletar", {
-    method: "DELETE",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      idLoginPaciente: p.idLoginPaciente,
-      idPaciente: p.idPaciente,
-      idPessoa: p.idPessoa,
-    }),
-  })
-    .then((res) => {
-      if (!res.ok) throw new Error("Erro ao excluir paciente");
-      setPacientes((prev) => prev.filter((x) => x.idLoginPaciente !== p.idLoginPaciente));
+  const handleDelete = (p: TypePaciente) => {
+    fetch("https://challenge-sprint4-java-2025.onrender.com/funcionario/deletar", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        idLoginPaciente: p.idLoginPaciente,
+        idPaciente: p.idPaciente,
+        idPessoa: p.idPessoa,
+      }),
     })
-    .catch((err) => console.error(err));
-};
+      .then((res) => {
+        if (!res.ok) throw new Error("Erro ao excluir paciente");
+        setPacientes((prev) => prev.filter((x) => x.idLoginPaciente !== p.idLoginPaciente));
+      })
+      .catch((err) => console.error(err));
+  };
 
   return (
     <div className="sm:w-11/12 lg:w-3/4 mt-8 m-auto min-h-screen px-2">
@@ -68,55 +67,56 @@ const handleDelete = (p: TypePaciente) => {
         </Link>
       </div>
 
-      <div className="overflow-x-auto">
-        <table className="w-full border-2 border-gray-400 my-5 text-sm sm:text-base">
+      <div className="overflow-x-auto w-full">
+        <table className="w-full border-2 border-gray-400 my-5 text-sm sm:text-base table-auto">
           <thead>
-            <tr className="*:p-2.5 bg-red-800 text-white">
-              <th>Nome</th>
-              <th>CPF</th>
-              <th>RG</th>
-              <th>Data de Nascimento</th>
-              <th>Grupo Sanguíneo</th>
-              <th>Ações</th>
+            <tr className="bg-red-800 text-white text-center">
+              <th className="px-2 sm:px-4 py-2">Nome</th>
+              <th className="px-2 sm:px-4 py-2">CPF</th>
+              <th className="px-2 sm:px-4 py-2">RG</th>
+              <th className="px-2 sm:px-4 py-2">Data de Nascimento</th>
+              <th className="px-2 sm:px-4 py-2">Grupo Sanguíneo</th>
+              <th className="px-2 sm:px-4 py-2">Ações</th>
             </tr>
           </thead>
           <tbody>
             {pacientes.length > 0 ? (
               pacientes.map((p) => (
-                <tr
-                  className="even:bg-gray-200 *:text-center *:p-2.5"
-                  key={p.idLoginPaciente}
-                >
-                  <td>{p.nmPessoa}</td>
-                  <td>{p.cpf}</td>
-                  <td>{p.rg}</td>
-                  <td>{p.dtNascimento}</td>
-                  <td>{p.grupoSanguineo}</td>
-                  <td>
+                <tr key={p.idLoginPaciente} className="even:bg-gray-200 text-center">
+                  <td className="px-2 sm:px-4 py-1 sm:py-2">{p.nmPessoa}</td>
+                  <td className="px-2 sm:px-4 py-1 sm:py-2">{p.cpf}</td>
+                  <td className="px-2 sm:px-4 py-1 sm:py-2">{p.rg}</td>
+                  <td className="px-2 sm:px-4 py-1 sm:py-2">{p.dtNascimento}</td>
+                  <td className="px-2 sm:px-4 py-1 sm:py-2">{p.grupoSanguineo}</td>
+                  <td className="flex flex-col sm:flex-row justify-center gap-2 px-2 sm:px-4 py-1 sm:py-2">
                     <Link
-                      className="m-1 bg-blue-600 text-white px-2 pb-1 rounded-md hover:font-bold text-sm sm:text-base"
+                      className="bg-blue-600 text-white px-2 py-1 rounded-md hover:font-bold text-sm sm:text-base"
                       to={`/funcionarios/editar-pacientes/${p.idLoginPaciente}`}
                     >
                       Editar
                     </Link>
-                    <button onClick={() => handleDelete(p)} className="m-1 bg-red-600 text-white px-2 pb-1 rounded-md hover:font-bold text-sm sm:text-base">Excluir</button>
+                    <button
+                      onClick={() => handleDelete(p)}
+                      className="bg-red-600 text-white px-2 py-1 rounded-md hover:font-bold text-sm sm:text-base"
+                    >
+                      Excluir
+                    </button>
                   </td>
                 </tr>
               ))
             ) : (
               <tr>
-                <td
-                  colSpan={6}
-                  className="text-center text-gray-600 font-semibold p-4"
-                >
+                <td colSpan={6} className="text-center text-gray-600 font-semibold py-4">
                   Nenhum paciente encontrado.
                 </td>
               </tr>
             )}
           </tbody>
           <tfoot>
-            <tr className="*:p-2.5 bg-gray-700 text-center text-white">
-              <td colSpan={6}>Pacientes cadastrados encontrados!</td>
+            <tr className="bg-gray-700 text-center text-white">
+              <td colSpan={6} className="py-2 sm:py-3">
+                Pacientes cadastrados encontrados!
+              </td>
             </tr>
           </tfoot>
         </table>

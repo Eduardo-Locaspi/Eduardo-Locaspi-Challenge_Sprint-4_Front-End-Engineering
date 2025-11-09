@@ -1,11 +1,11 @@
 export default function Faq() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-red-50 to-white p-10 flex flex-col items-center">
-      <h1 className="text-5xl font-extrabold text-red-800 mb-10">
+    <main className="min-h-screen bg-gradient-to-b from-red-50 to-white p-4 sm:p-10 flex flex-col items-center">
+      <h1 className="text-4xl sm:text-5xl font-extrabold text-red-800 mb-8 sm:mb-10 text-center">
         Perguntas Frequentes
       </h1>
 
-      <div className="flex flex-col items-center gap-6 w-full max-w-4xl">
+      <div className="flex flex-col items-center gap-4 sm:gap-6 w-full max-w-4xl">
         {[
           {
             pergunta: "Como faço para agendar uma consulta pelo chatbot Sophie?",
@@ -38,10 +38,10 @@ export default function Faq() {
             key={index}
             className="w-full bg-white border border-red-200 rounded-xl shadow-md overflow-hidden transition-all hover:shadow-lg"
           >
-            <h2 className="text-2xl font-semibold bg-red-700 text-white px-8 py-4">
+            <h2 className="text-lg sm:text-2xl font-semibold bg-red-700 text-white px-4 sm:px-8 py-3 sm:py-4">
               {index + 1}. {item.pergunta}
             </h2>
-            <div className="bg-gray-100 px-8 py-4 text-gray-700 text-[17px] leading-relaxed">
+            <div className="bg-gray-100 px-4 sm:px-8 py-3 sm:py-4 text-gray-700 text-sm sm:text-[17px] leading-relaxed">
               {item.resposta}
             </div>
           </div>

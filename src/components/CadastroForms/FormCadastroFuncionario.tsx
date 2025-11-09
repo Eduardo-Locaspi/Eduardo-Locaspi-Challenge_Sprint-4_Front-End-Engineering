@@ -21,10 +21,32 @@ export default function FormCadastroFuncionario({ onChange }: { onChange: (data:
   }
 
   return (
-    <div className="flex flex-col gap-3 w-full">
-      <input className="rounded-md border px-3 py-2" type="text" name="setor" placeholder="Setor" value={funcionario.setor} onChange={handleChange} required />
-      <input className="rounded-md border px-3 py-2" type="text" name="cargo" placeholder="Cargo" value={funcionario.cargo} onChange={handleChange} required />
-      <select className="rounded-md border px-3 py-2" name="st_credencial" value={funcionario.st_credencial} onChange={handleChange} required>
+    <div className="flex flex-col gap-3 w-full max-w-md mx-auto px-2 sm:px-0">
+      <input
+        className="rounded-md border px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+        type="text"
+        name="setor"
+        placeholder="Setor"
+        value={funcionario.setor}
+        onChange={handleChange}
+        required
+      />
+      <input
+        className="rounded-md border px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+        type="text"
+        name="cargo"
+        placeholder="Cargo"
+        value={funcionario.cargo}
+        onChange={handleChange}
+        required
+      />
+      <select
+        className="rounded-md border px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+        name="st_credencial"
+        value={funcionario.st_credencial}
+        onChange={handleChange}
+        required
+      >
         <option value="">Status da credencial</option>
         <option value="A">Ativa</option>
         <option value="I">Inativa</option>

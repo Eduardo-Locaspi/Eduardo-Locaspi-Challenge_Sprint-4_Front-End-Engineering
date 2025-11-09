@@ -20,12 +20,12 @@ export default function FormCadastroPessoa({ onChange }: { onChange: (data: Pess
     estado_civil: "",
     escolaridade: "",
   })
-    const formatarData = (valor: string) => 
-    {
-      if (!valor) return ""
-      const [ano, mes, dia] = valor.split("-")
-      return `${dia}/${mes}/${ano}`
-    }
+
+  const formatarData = (valor: string) => {
+    if (!valor) return ""
+    const [ano, mes, dia] = valor.split("-")
+    return `${dia}/${mes}/${ano}`
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -36,25 +36,71 @@ export default function FormCadastroPessoa({ onChange }: { onChange: (data: Pess
   }
 
   return (
-    <div className="flex flex-col gap-3 w-full">
-      <input className="rounded-md border px-3 py-2" type="text" name="nm_pessoa" placeholder="Nome completo" onChange={handleChange} required/>
-      <input className="rounded-md border px-3 py-2" type="text" name="cpf" placeholder="CPF" onChange={handleChange} maxLength={11} minLength={10} required/>
-      <input className="rounded-md border px-3 py-2" type="text" name="rg" placeholder="RG" onChange={handleChange} maxLength={9} minLength={8} required/>
-      <input className="rounded-md border px-3 py-2" type="date" name="dt_nascimento" onChange={handleChange} required/>
-      <select className="rounded-md border px-3 py-2" name="sx_pessoa" onChange={handleChange} required>
+    <div className="flex flex-col gap-3 w-full max-w-md mx-auto px-2 sm:px-0">
+      <input
+        className="rounded-md border px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+        type="text"
+        name="nm_pessoa"
+        placeholder="Nome completo"
+        onChange={handleChange}
+        required
+      />
+      <input
+        className="rounded-md border px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+        type="text"
+        name="cpf"
+        placeholder="CPF"
+        onChange={handleChange}
+        maxLength={11}
+        minLength={10}
+        required
+      />
+      <input
+        className="rounded-md border px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+        type="text"
+        name="rg"
+        placeholder="RG"
+        onChange={handleChange}
+        maxLength={9}
+        minLength={8}
+        required
+      />
+      <input
+        className="rounded-md border px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+        type="date"
+        name="dt_nascimento"
+        onChange={handleChange}
+        required
+      />
+      <select
+        className="rounded-md border px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+        name="sx_pessoa"
+        onChange={handleChange}
+        required
+      >
         <option value="">Sexo</option>
         <option value="M">Masculino</option>
         <option value="F">Feminino</option>
         <option value="I">Intersexo</option>
       </select>
-      <select className="rounded-md border px-3 py-2" name="estado_civil" onChange={handleChange} required>
+      <select
+        className="rounded-md border px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+        name="estado_civil"
+        onChange={handleChange}
+        required
+      >
         <option value="">Estado civil</option>
         <option value="solteiro">Solteiro(a)</option>
         <option value="casado">Casado(a)</option>
         <option value="divorciado">Divorciado(a)</option>
         <option value="viúvo">Viúvo(a)</option>
       </select>
-      <select className="rounded-md border px-3 py-2" name="escolaridade" onChange={handleChange} required>
+      <select
+        className="rounded-md border px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+        name="escolaridade"
+        onChange={handleChange}
+        required
+      >
         <option value="">Escolaridade</option>
         <option value="Ensino Fundamental Incompleto">Ensino Fundamental Incompleto</option>
         <option value="Ensino Fundamental Cursando">Ensino Fundamental Cursando</option>

@@ -1,73 +1,93 @@
-# React + TypeScript + Vite
+# 🏥 AxcessTech - Inovação em Saúde
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto foi desenvolvido pela **AxcessTech**, com foco em **soluções tecnológicas acessíveis e inovadoras para a saúde**.  
+A aplicação reúne um **Chatbot (Sophie)** e um **Dashboard inteligente (DashTech)** para melhorar a comunicação, acessibilidade e gestão de dados no ecossistema da saúde.  
 
-Currently, two official plugins are available:
+---
+## Logins
+- PACINTE -> user: Henrique, senha: 1234
+- FUNCIONÁRIO -> user: Henrique, senha: 123
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Links Relacionados
+- GITHUB -> https://github.com/Eduardo-Locaspi/Eduardo-Locaspi-Challenge_Sprint-4_Front-End-Engineering
+- YOUTUBE -> https://youtu.be/3uMg8asVlWY
+- DEPLOY -> https://sprint4front-ten.vercel.app
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📌 Tecnologias Utilizadas
+- **React + Vite** ⚡  
+- **TypeScript** 🟦  
+- **React Router DOM** 🌐  
+- **TailwindCSS** 🎨  
+- **Git/GitHub** (controle de versão)  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 👨‍💻 Integrantes da Equipe
+- **Eduardo Locaspi**  
+- **Natan Moraes**  
+- **Victor Alves**  
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📂 Estrutura de Pastas do Projeto
+```bash
+📦 SPRINT3_HC_FRONT_END
+ ┣ 📂 public
+ ┣ 📂 src
+ ┃ ┣ 📂 assets
+ ┃ ┃ ┣ axcessTech Icon.png
+ ┃ ┃ ┣ axcessTech_Logo_white.png
+ ┃ ┃ ┣ axcessTech_Logo-removebg-preview.png
+ ┃ ┃ ┣ desenvolvedor_eduardo.jpeg
+ ┃ ┃ ┣ github.png
+ ┃ ┃ ┣ linkedin.png
+ ┃ ┃ ┣ natan.jpg
+ ┃ ┃ ┗ victor.png
+ ┃ ┣ 📂 components
+ ┃ ┣ ┣ 📂 CadastroForms
+ ┃ ┃ ┃ ┣ FormCadastroFuncionario.tsx
+ ┃ ┃ ┃ ┣ FormCadastroLogin.tsx
+ ┃ ┃ ┃ ┣ FormCadastroPaciente.tsx
+ ┃ ┃ ┃ ┗ FormCadastroPessoa.tsx
+ ┃ ┃ ┣ Cabecalho.tsx
+ ┃ ┃ ┣ FormLogin.tsx
+ ┃ ┃ ┣ PrivateRoute.tsx
+ ┃ ┃ ┗ Rodape.tsx
+ ┃ ┣ 📂 context
+ ┃ ┃ ┗ auth.tsx
+ ┃ ┣ 📂 hooks
+ ┃ ┃ ┗ useAuth.ts
+ ┃ ┣ 📂 routes
+ ┃ ┃ ┣ 📂 Cadastro
+ ┃ ┃ ┃ ┗ index.tsx
+ ┃ ┃ ┣ 📂 Error
+ ┃ ┃ ┃ ┗ index.tsx
+ ┃ ┃ ┣ 📂 Faq
+ ┃ ┃ ┃ ┗ index.tsx
+ ┃ ┃ ┣ 📂 Funcionario
+ ┃ ┃ ┃ ┣ 📂 EditarPacientes
+ ┃ ┃ ┃ ┃ ┗ index.tsx
+ ┃ ┃ ┃ ┣ 📂 FormularioEdicao
+ ┃ ┃ ┃ ┃ ┗ index.tsx
+ ┃ ┃ ┣ 📂 Home
+ ┃ ┃ ┃ ┗ index.tsx
+ ┃ ┃ ┣ 📂 Integrantes
+ ┃ ┃ ┃ ┗ index.tsx
+ ┃ ┃ ┣ 📂 Login
+ ┃ ┃ ┃ ┗ index.tsx
+ ┃ ┃ ┣ 📂 Pacientes
+ ┃ ┃ ┃ ┣ 📂 MarcarConsulta
+ ┃ ┃ ┃ ┃ ┗ index.tsx
+ ┃ ┃ ┃ ┣ 📂 PacienteInicio
+ ┃ ┃ ┃ ┃ ┗ index.tsx
+ ┃ ┃ ┃ ┣ 📂 VisualizarConsultas
+ ┃ ┃ ┃ ┃ ┗ index.tsx
+ ┃ ┃ ┃ ┗ index.tsx
+ ┃ ┃ ┗ 📂 Sobre
+ ┃ ┃ ┃ ┗ index.tsx
+ ┃ ┣ App.tsx
+ ┃ ┣ index.css
+ ┃ ┗ main.tsx
+ ┗ README.md

@@ -10,7 +10,7 @@ export const PrivateRoute = ({ Item, allowedRoles }: PrivateRouteProps) => {
   const { user, role } = useAuth();
 
   if (!user) return <Navigate to="/login" />;
-  if (!allowedRoles.includes(role!)) return <Navigate to="/unauthorized" />;
+  if (!allowedRoles.includes(role!)) return <Navigate to="/" />;
 
   return <Item />;
 };
