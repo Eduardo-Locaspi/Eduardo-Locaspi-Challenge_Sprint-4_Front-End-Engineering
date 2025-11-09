@@ -26,7 +26,7 @@ export default function Cadastro() {
         : "http://localhost:8080/cadastro/criarContaFuncionario",
       {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json"},
         body: JSON.stringify(dadosCompletos),
       }
     )

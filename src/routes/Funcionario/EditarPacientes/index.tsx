@@ -36,6 +36,7 @@ export default function EditarPacientes() {
   }, []);
 
 const handleDelete = (p: TypePaciente) => {
+  console.log(p)
   fetch("http://localhost:8080/funcionario/deletar", {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
