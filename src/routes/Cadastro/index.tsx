@@ -65,7 +65,6 @@ export default function Cadastro() {
             <h2 className="text-xl font-semibold mb-3 mt-8 text-red-700">Dados pessoais</h2>
             <FormCadastroPessoa onChange={setDadosPessoa} />
 
-              {/*Se for Paciente*/} 
             {usuario === "Paciente" && (
               <>
                 <h2 className="text-xl font-semibold mt-8 mb-3 text-red-700">Informações médicas</h2>
@@ -73,7 +72,6 @@ export default function Cadastro() {
               </>
             )}
 
-              {/*Se for Funcioario*/} 
             {usuario === "Funcionário" && (
               <>
                 <h2 className="text-xl font-semibold mt-8 mb-3 text-red-700">Dados funcionais</h2>
