@@ -63,7 +63,7 @@ export default function FormEdicao() {
     };
     console.log(paciente)
 
-    fetch(`https://challenge-sprint4-java-2025.onrender.com/funcionario/atualizar-paciente`, {
+    fetch(`http://localhost:8080/funcionario/atualizar-paciente`, {
       method: metodo,
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(paciente),
@@ -74,7 +74,7 @@ export default function FormEdicao() {
 
   useEffect(() => {
     if (id) {
-      fetch(`https://challenge-sprint4-java-2025.onrender.com/funcionario/recupera-por-id/${id}`)
+      fetch(`http://localhost:8080/funcionario/recupera-por-id/${id}`)
         .then((resp) => resp.json())
         .then((data) => {
           const dataFormatada = data.dtNascimento

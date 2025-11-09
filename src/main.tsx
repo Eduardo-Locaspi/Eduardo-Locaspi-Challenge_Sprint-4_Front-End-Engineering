@@ -6,7 +6,6 @@ import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 
 import Login from './routes/Login/index.tsx'
 import Cadastro from './routes/Cadastro/index.tsx'
-import Contato from './routes/Contato/index.tsx'
 import Faq from './routes/Faq/index.tsx'
 import Home from './routes/Home/index.tsx'
 import Integrantes from './routes/Integrantes/index.tsx'
@@ -40,7 +39,6 @@ const router = createBrowserRouter([
     {path:"/integrantes", element:<Integrantes/>},
     {path:"/sobre",element:<Sobre/>},
     {path:"/faq",element:<Faq/>},
-    {path:"/contato",element:<Contato/>},
     {path:"/funcionarios/editar-pacientes", element:<PrivateRoute Item={EditarPacientes} allowedRoles={["Funcionario"]}/>},
     {path:"/funcionarios/editar-pacientes/:id", element:<PrivateRoute Item={FormEdicao} allowedRoles={["Funcionario"]}/>},
     {path:"/paciente/agendar-consulta", element:<PrivateRoute Item={MarcarConsulta} allowedRoles={["Paciente"]}/>},

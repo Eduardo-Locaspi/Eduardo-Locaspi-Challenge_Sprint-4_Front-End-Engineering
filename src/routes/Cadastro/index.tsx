@@ -22,11 +22,11 @@ export default function Cadastro() {
     console.log("Enviando para o backend:", dadosCompletos)
     fetch(
       usuario === "Paciente"
-        ? "https://challenge-sprint4-java-2025.onrender.com/cadastro/criarContaPaciente"
-        : "https://challenge-sprint4-java-2025.onrender.com/cadastro/criarContaFuncionario",
+        ? "http://localhost:8080/cadastro/criarContaPaciente"
+        : "http://localhost:8080/cadastro/criarContaFuncionario",
       {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json"},
         body: JSON.stringify(dadosCompletos),
       }
     )

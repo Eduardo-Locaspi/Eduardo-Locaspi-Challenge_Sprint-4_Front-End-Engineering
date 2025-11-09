@@ -36,7 +36,7 @@ export default function FormCadastroPaciente({ onChange }: { onChange: (data: Pa
         ))}
       </select>
       
-      <input className="rounded-md border px-3 py-2" type="number" name="altura" placeholder="Altura (m)" onChange={handleChange} min={1} required/>
+      <input className="rounded-md border px-3 py-2" type="number" name="altura" placeholder="Altura (cm)" onChange={handleChange} min={1} required/>
       <input className="rounded-md border px-3 py-2" type="number" name="peso" placeholder="Peso (kg)" onChange={handleChange} min={1} required/>
     </div>
   )
