@@ -11,7 +11,7 @@ A aplicação reúne um **Chatbot (Sophie)** e um **Dashboard inteligente (DashT
 ## Links Relacionados
 - GITHUB -> https://github.com/Eduardo-Locaspi/Eduardo-Locaspi-Challenge_Sprint-4_Front-End-Engineering
 - YOUTUBE -> https://youtu.be/3uMg8asVlWY
-- DEPLOY -> https://sprint4front-ten.vercel.app
+- DEPLOY -> https://axcesstech.vercel.app
 
 ---
 
