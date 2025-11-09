@@ -20,8 +20,8 @@ import { PrivateRoute } from './components/PrivateRoute.tsx'
 import MarcarConsulta from './routes/Pacientes/MarcarConsulta.tsx/index.tsx'
 import DashBoard from './routes/Funcionario/Dashboard/index.tsx'
 import FormEdicao from './routes/Funcionario/FormularioEdicao/index.tsx'
-import PacienteHome from './routes/Pacientes/ConsultasAgendadas/index.tsx'
-import ConsultasAgendadas from './routes/Pacientes/PacienteHome/index.tsx'
+import PacienteHome from './routes/Pacientes/PacienteInicio/index.tsx'
+import ConsultasAgendadas from './routes/Pacientes/VisualizarConsultas/index.tsx'
 
 type PrivateProps = {
   Item: React.ComponentType
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
     {path:"/funcionarios/dashboard", element:<PrivateRoute Item={DashBoard} allowedRoles={["Funcionario"]}/>},
     {path:"/paciente/agendar-consulta", element:<PrivateRoute Item={MarcarConsulta} allowedRoles={["Paciente"]}/>},
     {path:"/paciente/home", element:<PrivateRoute Item={PacienteHome} allowedRoles={["Paciente"]}/>},
-    {path:"/paciente/ver-consultas", element:<PrivateRoute Item={ConsultasAgendadas} allowedRoles={["Paciente"]}/>},
+    {path:"/paciente/consultas-agendadas", element:<PrivateRoute Item={ConsultasAgendadas} allowedRoles={["Paciente"]}/>},
 
   ] },
   { path: "*", element: <Error/> },
