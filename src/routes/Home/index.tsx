@@ -5,7 +5,6 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center justify-center bg-gradient-to-b from-red-50 to-red-100 text-gray-800 min-h-screen px-6 py-12">
-      {/* Cabeçalho */}
       <section className="max-w-4xl text-center mb-10">
         <h1 className="text-5xl font-extrabold text-red-800 mb-4">AxcessTech</h1>
         <p className="text-lg text-gray-600">
@@ -13,7 +12,6 @@ export default function Home() {
         </p>
       </section>
 
-      {/* Descrição do Projeto */}
       <section className="max-w-5xl bg-white shadow-xl rounded-2xl p-8 mb-10 border border-gray-200">
         <h2 className="text-2xl font-semibold text-red-700 mb-4">
           Sobre o Projeto
@@ -32,7 +30,6 @@ export default function Home() {
         </p>
       </section>
 
-      {/* Seções explicativas */}
       <div className="grid md:grid-cols-2 gap-8 max-w-5xl mb-10">
         <div className="bg-red-700 text-white rounded-2xl p-6 shadow-md">
           <h3 className="text-xl font-semibold mb-2">Sophi — Chatbot Assistente</h3>
@@ -53,7 +50,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Tecnologias */}
+
       <section className="max-w-5xl bg-white border border-gray-200 rounded-2xl shadow-md p-8 mb-10">
         <h2 className="text-2xl font-semibold text-red-700 mb-4">
           Tecnologias Utilizadas
@@ -67,7 +64,6 @@ export default function Home() {
         </ul>
       </section>
 
-      {/* Botão */}
       <button
         onClick={() => navigate("/login")}
         className="bg-red-700 text-white px-8 py-3 rounded-lg shadow-md font-semibold hover:bg-red-800 transition"

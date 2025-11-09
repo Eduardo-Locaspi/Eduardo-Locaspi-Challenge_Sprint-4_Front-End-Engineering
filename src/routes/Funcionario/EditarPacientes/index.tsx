@@ -26,7 +26,7 @@ export default function EditarPacientes() {
   const [pacientes, setPacientes] = useState<TypePaciente[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/funcionario/lista-pacientes")
+    fetch("https://challenge-sprint4-java-2025.onrender.com/funcionario/lista-pacientes")
       .then((resp) => {
         if (!resp.ok) throw new Error("Erro ao buscar pacientes");
         return resp.json();
@@ -37,7 +37,7 @@ export default function EditarPacientes() {
 
 const handleDelete = (p: TypePaciente) => {
   console.log(p)
-  fetch("http://localhost:8080/funcionario/deletar", {
+  fetch("https://challenge-sprint4-java-2025.onrender.com/funcionario/deletar", {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({

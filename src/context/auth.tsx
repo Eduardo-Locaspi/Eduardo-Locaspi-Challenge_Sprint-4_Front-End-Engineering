@@ -21,8 +21,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const signin = async (usuario: string, senha: string, tipo: "Paciente" | "Funcionario") => {
     const endpoint =
       tipo === "Paciente"
-        ? "http://localhost:8080/login/paciente"
-        : "http://localhost:8080/login/funcionario";
+        ? "https://challenge-sprint4-java-2025.onrender.com/login/paciente"
+        : "https://challenge-sprint4-java-2025.onrender.com/login/funcionario";
 
     try {
       const res = await fetch(endpoint, {

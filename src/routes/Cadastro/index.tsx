@@ -3,8 +3,10 @@ import FormCadastroPessoa from "../../components/CadastroForms/FormCadastroPesso
 import FormCadastroPaciente from "../../components/CadastroForms/FormCadastroPaciente"
 import FormCadastroLogin from "../../components/CadastroForms/FormCadastroLogin"
 import FormCadastroFuncionario from "../../components/CadastroForms/FormCadastroFuncionario"
+import { useNavigate } from "react-router-dom"
 
 export default function Cadastro() {
+  const navigate = useNavigate();
   const [dadosPessoa, setDadosPessoa] = useState({})
   const [dadosPaciente, setDadosPaciente] = useState({})
   const [dadosFuncionario, setDadosFuncionario] = useState({})
@@ -22,8 +24,8 @@ export default function Cadastro() {
     console.log("Enviando para o backend:", dadosCompletos)
     fetch(
       usuario === "Paciente"
-        ? "http://localhost:8080/cadastro/criarContaPaciente"
-        : "http://localhost:8080/cadastro/criarContaFuncionario",
+        ? "https://challenge-sprint4-java-2025.onrender.com/cadastro/criarContaPaciente"
+        : "https://challenge-sprint4-java-2025.onrender.com/criarContaFuncionario",
       {
         method: "POST",
         headers: { "Content-Type": "application/json"},
@@ -36,6 +38,7 @@ export default function Cadastro() {
       })
       .then((data) => {
         console.log("Cadastro feito com sucesso:", data);
+        navigate("/login")
       })
       .catch((err) => {
         console.error("Erro:", err);
