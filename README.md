@@ -1,7 +1,6 @@
 # 🏥 AxcessTech - Inovação em Saúde
 
-Este projeto foi desenvolvido pela **AxcessTech**, com foco em **soluções tecnológicas acessíveis e inovadoras para a saúde**.  
-A aplicação reúne um **Chatbot (Sophie)** e um **Dashboard inteligente (DashTech)** para melhorar a comunicação, acessibilidade e gestão de dados no ecossistema da saúde.  
+Este projeto foi desenvolvido pela **AxcessTech**, com foco em **soluções tecnológicas acessíveis e inovadoras para a saúde**.    
 
 ---
 ## Logins
