@@ -18,7 +18,6 @@ import { AuthProvider } from './context/auth.tsx'
 import EditarPacientes from './routes/Funcionario/EditarPacientes/index.tsx'
 import { PrivateRoute } from './components/PrivateRoute.tsx'
 import MarcarConsulta from './routes/Pacientes/MarcarConsulta.tsx/index.tsx'
-import DashBoard from './routes/Funcionario/Dashboard/index.tsx'
 import FormEdicao from './routes/Funcionario/FormularioEdicao/index.tsx'
 import PacienteHome from './routes/Pacientes/PacienteInicio/index.tsx'
 import ConsultasAgendadas from './routes/Pacientes/VisualizarConsultas/index.tsx'
@@ -44,7 +43,6 @@ const router = createBrowserRouter([
     {path:"/contato",element:<Contato/>},
     {path:"/funcionarios/editar-pacientes", element:<PrivateRoute Item={EditarPacientes} allowedRoles={["Funcionario"]}/>},
     {path:"/funcionarios/editar-pacientes/:id", element:<PrivateRoute Item={FormEdicao} allowedRoles={["Funcionario"]}/>},
-    {path:"/funcionarios/dashboard", element:<PrivateRoute Item={DashBoard} allowedRoles={["Funcionario"]}/>},
     {path:"/paciente/agendar-consulta", element:<PrivateRoute Item={MarcarConsulta} allowedRoles={["Paciente"]}/>},
     {path:"/paciente/home", element:<PrivateRoute Item={PacienteHome} allowedRoles={["Paciente"]}/>},
     {path:"/paciente/consultas-agendadas", element:<PrivateRoute Item={ConsultasAgendadas} allowedRoles={["Paciente"]}/>},
